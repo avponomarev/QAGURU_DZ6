@@ -3,6 +3,7 @@ package pages;
 import components.CalendarComponents;
 import components.CheckResult;
 import components.StateAndCityComponent;
+import dataTest.DataTest;
 
 
 import java.io.File;
@@ -12,7 +13,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class PracticeFormPage {
+public class PracticeFormPage extends DataTest {
     private CalendarComponents calendarComponents = new CalendarComponents();
     private StateAndCityComponent stateAndCityComponent = new StateAndCityComponent();
     private CheckResult checkResult = new CheckResult();
@@ -52,7 +53,7 @@ public class PracticeFormPage {
 
     public PracticeFormPage setBirthDay(String day, String month, String year) {
         $("#dateOfBirthInput").click();
-        calendarComponents.setDate(day, month, year);
+        calendarComponents.setDate(day,month, year);
         return this;
 
     }
@@ -69,9 +70,9 @@ public class PracticeFormPage {
 
     }
 
-    public PracticeFormPage setHobbies(String value, String value1) {
+    public PracticeFormPage setHobbies(String value) {
         $("#hobbiesWrapper").$(byText(value)).click();
-        $("#hobbiesWrapper").$(byText(value1)).click();
+    //    $("#hobbiesWrapper").$(byText(value1)).click();
         return this;
 
     }
